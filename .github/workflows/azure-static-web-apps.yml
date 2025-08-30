@@ -41,10 +41,11 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations ######
-          app_location: "/" # App source code path
+          app_location: "dist" # Használjuk közvetlenül a build kimeneti könyvtárat
           api_location: "" # Api source code path - set to empty if no API
-          output_location: "dist" # Built app content directory - optional
+          output_location: "" # Már a dist mappában vagyunk, nincs szükség output_location-re
           skip_app_build: true # Skip the build since we already built the app in the previous step
+          skip_api_build: true # Skip API build since we don't have an API
           ###### End of Repository/Build Configurations ######
           
   close_pull_request_job:
@@ -58,3 +59,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: "close"
+          app_location: "dist" # Ugyanaz, mint fent

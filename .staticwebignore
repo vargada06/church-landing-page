@@ -1,0 +1,14 @@
+**/node_modules/**
+**/src/**
+**/public/**
+**/.git/**
+**/.github/**
+**/.vscode/**
+**/coverage/**
+**/.gitignore
+**/.env*
+**/package-lock.json
+**/tsconfig.json
+**/vite.config.ts
+**/.eslintrc*
+**/README.md
