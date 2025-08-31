@@ -31,13 +31,16 @@
   font-size: clamp(1.25rem, 4vw, 3rem);
 }
 
-.quoteContainer {
+.scriptureContainer {
   position: absolute;
   width: 100%;
   text-align: center;
   padding: 0 1rem;
-  top: 100%;
-  transform: translateY(1rem);
+  /* A 75vh értéket választottam, hogy kb. félúton legyen a kereszt és a navbar között */
+  bottom: 7rem; /* Körülbelül a navbar magasságának duplája */
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 @media (max-width: 640px) {
@@ -59,10 +62,8 @@
     transform: translateY(-50%);
   }
   
-  .quoteContainer {
-    top: 68%;
-    transform: translateY(0);
-    /* Idézet méret arányosítása */
-    font-size: clamp(0.75rem, 3vw, 1rem);
+  .scriptureContainer {
+    bottom: 5rem; /* Kisebb képernyőkön kissé feljebb */
+    padding: 0 0.5rem;
   }
 }
