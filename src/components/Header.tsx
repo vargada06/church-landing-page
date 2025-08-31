@@ -12,7 +12,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { href: "#hitvallas", label: "Hitvallásunk", primary: true },
-  { href: "#alkalmak", label: "Gyülekezeti alkalom", primary: false }
+  { href: "#alkalmak", label: "Gyülekezeti összejövetel", primary: false }
 ];
 
 export function Header() {
