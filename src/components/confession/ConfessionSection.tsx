@@ -73,8 +73,10 @@ const ConfessionSection: React.FC = () => {
               <div className="prose dark:prose-invert mx-auto">
                 <div className={`bg-card p-6 rounded-lg shadow-sm border border-primary/10 ${styles.leadershipStatement}`}>
                   <p className="text-muted-foreground leading-relaxed text-center italic relative z-10 font-medium">
-                    A Bibliai Örömhír Közösség vezetőségéhez tartozó személy<br className="hidden sm:block" /> 
-                    képviseli az Együttműködési Hitvallásban, a Közösségi Hitvallásban<br className="hidden sm:block" />
+                    A Bibliai Örömhír Közösség vezetőségéhez tartozó személy{' '}
+                    <span className="sm:hidden"> </span><br className="hidden sm:block" />
+                    képviseli az Együttműködési Hitvallásban, a Közösségi Hitvallásban{' '}
+                    <span className="sm:hidden"> </span><br className="hidden sm:block" />
                     és a Vezetőségi Hitvallásban megfogalmazottakat.
                   </p>
                 </div>
