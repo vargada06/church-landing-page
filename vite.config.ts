@@ -3,11 +3,14 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
+// Egyszerű megoldás az __dirname problémára Vite környezetben
+const projectRoot = process.cwd();
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(projectRoot, './src'),
     },
   },
   build: {
