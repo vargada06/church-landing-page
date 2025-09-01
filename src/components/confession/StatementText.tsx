@@ -15,24 +15,21 @@ export function StatementText({ title, items }: StatementTextProps) {
       <p className="text-center text-foreground leading-relaxed font-medium mb-4 text-sm">
         {title}
       </p>
-      
+
       <ol className="space-y-2 pl-5 text-sm">
         {items.map((item, index) => (
-          <li 
-            key={index} 
-            className="text-muted-foreground relative"
-          >
+          <li key={index} className="text-muted-foreground relative">
             {/* Pipa ikon a lista elem előtt */}
             <span className="absolute -left-5 top-1 flex items-center justify-center">
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="14" 
-                height="14" 
-                viewBox="0 0 24 24" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
                 className="text-primary/60"
               >

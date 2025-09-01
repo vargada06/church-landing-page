@@ -5,6 +5,9 @@ import pluginReact from 'eslint-plugin-react';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
+  {
+    ignores: ['dist/**/*'], // Ignore the dist directory completely
+  },
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'], plugins: { js }, extends: ['js/recommended'] },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
@@ -23,6 +26,7 @@ export default defineConfig([
     files: ['**/*.jsx', '**/*.tsx'],
     rules: {
       'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off', // Disable prop-types since we're using TypeScript
       // ...egyéb szabályok...
     },
   },

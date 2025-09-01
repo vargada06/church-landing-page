@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge';
 
 type TextPart = {
   text: string;
@@ -19,8 +19,8 @@ const ReferenceText: React.FC<ReferenceTextProps> = ({ parts, onReferenceClick }
           <span key={index}>
             {part.text}
             <sup className="ml-0.5">
-              <Badge 
-                variant="secondary" 
+              <Badge
+                variant="secondary"
                 className="cursor-pointer hover:bg-secondary/80 text-xs font-bold px-1.5 py-0.5 rounded-full"
                 onClick={() => onReferenceClick(part.refId as string)}
               >

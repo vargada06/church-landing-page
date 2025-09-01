@@ -1,6 +1,6 @@
 import React from 'react';
-import { Cross } from "@/components/icons/Cross";
-import { Button } from "@/components/ui/button";
+import { Cross } from '@/components/icons/Cross';
+import { Button } from '@/components/ui/button';
 import styles from './Header.module.css';
 import ScriptureQuote from './ScriptureQuote';
 
@@ -8,11 +8,11 @@ type NavItem = {
   href: string;
   label: string;
   primary?: boolean;
-}
+};
 
 const navItems: NavItem[] = [
-  { href: "#hitvallas", label: "Hitvallásunk", primary: true },
-  { href: "#alkalmak", label: "Gyülekezeti összejövetel", primary: false }
+  { href: '#hitvallas', label: 'Hitvallásunk', primary: true },
+  { href: '#alkalmak', label: 'Gyülekezeti összejövetel', primary: false },
 ];
 
 export function Header() {
@@ -28,7 +28,7 @@ export function Header() {
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <Cross className="w-full h-full text-primary/10" aria-hidden="true" />
               </div>
-              
+
               {/* Cím a vízszintes keresztrészen */}
               <div className={styles.titleContainer}>
                 <h1 className={`${styles.title} font-extrabold tracking-tight text-primary`}>
@@ -39,7 +39,7 @@ export function Header() {
           </div>
         </div>
       </div>
-      
+
       {/* Bibliai idézet a kereszt és navbar között félúton */}
       <div className={styles.scriptureContainer}>
         <ScriptureQuote
@@ -54,7 +54,7 @@ export function Header() {
       <div className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mt-auto">
         <div className="container mx-auto flex h-14 items-center justify-center">
           <nav className="flex items-center justify-center gap-6">
-            {navItems.map((item) => (
+            {navItems.map((item) =>
               item.primary ? (
                 <Button
                   key={item.href}
@@ -73,8 +73,8 @@ export function Header() {
                 >
                   {item.label}
                 </a>
-              )
-            ))}
+              ),
+            )}
           </nav>
         </div>
       </div>

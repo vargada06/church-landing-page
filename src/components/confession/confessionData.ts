@@ -263,7 +263,7 @@ export const confessionData = [
     ],
   },
   {
-    title: "Közösségi Hitvallás",
+    title: 'Közösségi Hitvallás',
     items: [
       {
         id: '4',
@@ -389,10 +389,10 @@ export const confessionData = [
           },
         ],
       },
-    ]
+    ],
   },
   {
-    title: "Vezetőségi Hitvallás",
+    title: 'Vezetőségi Hitvallás',
     items: [
       {
         id: '8',
@@ -580,6 +580,6 @@ export const confessionData = [
           },
         ],
       },
-    ]
-  }
+    ],
+  },
 ];

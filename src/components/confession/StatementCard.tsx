@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 interface StatementCardProps {
   children: React.ReactNode;
@@ -12,21 +12,25 @@ interface StatementCardProps {
  * StatementCard komponens a hitvallási nyilatkozatok megjelenítésére
  * Letisztult, egyszerű megjelenéssel
  */
-export function StatementCard({ children, className, variant = 'cooperation' }: StatementCardProps) {
+export function StatementCard({
+  children,
+  className,
+  variant = 'cooperation',
+}: StatementCardProps) {
   // Variant-függő színek és stílusok
   const variantStyles = {
-    cooperation: "border-primary/20 bg-primary/5",
-    community: "border-secondary/20 bg-secondary/5",
-    leadership: "border-accent/20 bg-accent/5",
+    cooperation: 'border-primary/20 bg-primary/5',
+    community: 'border-secondary/20 bg-secondary/5',
+    leadership: 'border-accent/20 bg-accent/5',
   };
-  
+
   return (
-    <Card 
+    <Card
       className={cn(
-        "mb-8 transition-all duration-300",
-        "border-l-4",
+        'mb-8 transition-all duration-300',
+        'border-l-4',
         variantStyles[variant],
-        className
+        className,
       )}
     >
       <CardContent className="pt-6 pb-4">
@@ -34,7 +38,7 @@ export function StatementCard({ children, className, variant = 'cooperation' }: 
           <div className="p-6 relative">
             {/* Egyszerű vékony vonal a tetején */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-primary/10"></div>
-            
+
             {children}
           </div>
         </div>

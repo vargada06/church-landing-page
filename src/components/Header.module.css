@@ -47,7 +47,7 @@
   .titleText {
     white-space: normal;
   }
-  
+
   .crossContainer {
     width: 200vw;
     height: 200vw;
@@ -56,12 +56,12 @@
     /* Arányos csökkentés mobilon, más alapról indul */
     transform: translateY(-10%) scale(calc(0.6 + 0.4 * (100vw / 640)));
   }
-  
+
   .titleContainer {
     top: 48%;
     transform: translateY(-50%);
   }
-  
+
   .scriptureContainer {
     bottom: 5rem; /* Kisebb képernyőkön kissé feljebb */
     padding: 0 0.5rem;

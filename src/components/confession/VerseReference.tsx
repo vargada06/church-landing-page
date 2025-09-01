@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 type VerseReferenceProps = {
   id: string;
@@ -10,7 +10,7 @@ type VerseReferenceProps = {
 
 const VerseReference: React.FC<VerseReferenceProps> = ({ id, verses, isActive = false }) => {
   const [showVerses, setShowVerses] = useState(isActive);
-  
+
   useEffect(() => {
     setShowVerses(isActive);
   }, [isActive]);
@@ -24,8 +24,8 @@ const VerseReference: React.FC<VerseReferenceProps> = ({ id, verses, isActive = 
         className="h-auto p-0 font-medium text-primary flex items-center hover:bg-transparent hover:underline"
       >
         <sup className="text-primary font-medium">{id}</sup>
-        <ChevronDown 
-          className={`w-4 h-4 ml-1 transition-transform ${showVerses ? 'rotate-180' : ''}`} 
+        <ChevronDown
+          className={`w-4 h-4 ml-1 transition-transform ${showVerses ? 'rotate-180' : ''}`}
         />
       </Button>
 
