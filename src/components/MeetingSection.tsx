@@ -82,7 +82,7 @@ export function MeetingSection() {
           <MeetingItem
             title="3. Kenyér megtörése"
             duration="kb. 30 perc"
-            description="Az úrvacsora során Krisztus áldozatára emlékezünk, halálát hirdetjük és várjuk dicsőséges visszatértét."
+            description="Az Úr-vacsora során Krisztus áldozatára emlékezünk, halálát hirdetjük és várjuk dicsőséges visszatértét."
             verseRef="1Kor 11,26"
             verseText="Mert valamennyiszer eszitek e kenyeret, és isztok e pohárból, az Úr halálát hirdetitek, amíg eljön."
             icon={<GlassWater className="h-5 w-5" />}
