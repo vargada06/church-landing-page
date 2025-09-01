@@ -7,8 +7,8 @@ import { defineConfig } from 'eslint/config';
 export default defineConfig([
   {
     ignores: [
-      'dist/**/*',        // Ignore the dist directory completely
-      'node_modules/**/*' // Ignore the node_modules directory
+      'dist/**/*', // Ignore the dist directory completely
+      'node_modules/**/*', // Ignore the node_modules directory
     ],
   },
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'], plugins: { js }, extends: ['js/recommended'] },
