@@ -1,18 +1,28 @@
 ﻿import React, { useState } from "react";
 import { confessionData } from "./confessionData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 // Használjuk a meglévő komponenseket
 import VerseReference from "./VerseReference";
 import ReferenceText from "./ReferenceText";
+import StatementText from "./StatementText";
 import styles from "./ConfessionSection.module.css";
 
 const ConfessionSection: React.FC = () => {
   const [activeReferenceId, setActiveReferenceId] = useState<string | null>(null);
+  const [expandedStatements, setExpandedStatements] = useState<{[key: string]: boolean}>({});
 
   const handleReferenceClick = (refId: string) => {
     setActiveReferenceId(refId === activeReferenceId ? null : refId);
+  };
+  
+  const toggleStatement = (categoryTitle: string) => {
+    setExpandedStatements(prev => ({
+      ...prev,
+      [categoryTitle]: !prev[categoryTitle]
+    }));
   };
 
   return (
@@ -23,10 +33,12 @@ const ConfessionSection: React.FC = () => {
             Hitvallásunk
           </h2>
         
-          {confessionData.map((category) => (
+          {confessionData.map((category, index) => (
             <Card key={category.title} className="mb-8">
               <CardHeader className="text-center">
-                <CardTitle className="text-xl md:text-2xl">{category.title}</CardTitle>
+                <CardTitle className="text-xl md:text-2xl">
+                  {category.title}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <Accordion type="single" collapsible className="w-full">
@@ -64,25 +76,90 @@ const ConfessionSection: React.FC = () => {
                   ))}
                 </Accordion>
               </CardContent>
+              
+              {/* Nyilatkozat gomb és kibontható tartalom */}
+              <CardFooter className="flex flex-col px-6 py-3 border-t border-border/30 bg-muted/20">
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  className="text-muted-foreground flex items-center gap-2 text-sm hover:text-primary transition-colors w-full justify-between"
+                  onClick={() => toggleStatement(category.title)}
+                >
+                  <div className="flex items-center gap-2">
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                      className="text-primary/60"
+                    >
+                      <rect width="18" height="18" x="3" y="3" rx="2" />
+                      <path d="M3 9h18" />
+                      <path d="M9 16H7" />
+                      <path d="m13 16-2-2v-3" />
+                    </svg>
+                    <span>Elköteleződési nyilatkozat</span>
+                  </div>
+                  
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    className={`transition-transform ${expandedStatements[category.title] ? 'rotate-180' : ''}`}
+                  >
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </Button>
+                
+                <div 
+                  className={`w-full overflow-hidden transition-all duration-300 ${
+                    expandedStatements[category.title] ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  {index === 0 && (
+                    <StatementText 
+                      title="A Bibliai Örömhír Közösséggel együttműködő személy"
+                      items={[
+                        "képviseli az Együttműködési Hitvallásban megfogalmazottakat;",
+                        "tiszteletben tartja a Közösségi Hitvallásban megfogalmazottakat;",
+                        "tudomásul veszi a Vezetőségi Hitvallásban megfogalmazottakat."
+                      ]}
+                    />
+                  )}
+                  
+                  {index === 1 && (
+                    <StatementText 
+                      title="A Bibliai Örömhír Közösséghez tartozó személy"
+                      items={[
+                        "képviseli az Együttműködési Hitvallásban és a Közösségi Hitvallásban megfogalmazottakat;",
+                        "tiszteletben tartja a Vezetőségi Hitvallásban megfogalmazottakat."
+                      ]}
+                    />
+                  )}
+                  
+                  {index === 2 && (
+                    <StatementText 
+                      title="A Bibliai Örömhír Közösség vezetőségéhez tartozó személy"
+                      items={[
+                        "képviseli az Együttműködési Hitvallásban, a Közösségi Hitvallásban és a Vezetőségi Hitvallásban megfogalmazottakat."
+                      ]}
+                    />
+                  )}
+                </div>
+              </CardFooter>
             </Card>
           ))}
-          
-          {/* Vezetőségi nyilatkozat */}
-          <Card className={`mb-8 border-primary/20 bg-primary/5 ${styles.leadershipCard}`}>
-            <CardContent className="pt-6">
-              <div className="prose dark:prose-invert mx-auto">
-                <div className={`bg-card p-6 rounded-lg shadow-sm border border-primary/10 ${styles.leadershipStatement}`}>
-                  <p className="text-muted-foreground leading-relaxed text-center italic relative z-10 font-medium">
-                    A Bibliai Örömhír Közösség vezetőségéhez tartozó személy{' '}
-                    <span className="sm:hidden"> </span><br className="hidden sm:block" />
-                    képviseli az Együttműködési Hitvallásban, a Közösségi Hitvallásban{' '}
-                    <span className="sm:hidden"> </span><br className="hidden sm:block" />
-                    és a Vezetőségi Hitvallásban megfogalmazottakat.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>
