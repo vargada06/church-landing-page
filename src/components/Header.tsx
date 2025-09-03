@@ -3,6 +3,7 @@ import { Cross } from '@/components/icons/Cross';
 import { Button } from '@/components/ui/button';
 import styles from './Header.module.css';
 import ScriptureQuote from './ScriptureQuote';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 type NavItem = {
   href: string;
@@ -50,9 +51,13 @@ export function Header() {
         />
       </div>
 
-      {/* Egyszerű navigáció a header alján */}
+      {/* Navigáció a header alján */}
       <div className="w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mt-auto">
-        <div className="container mx-auto flex h-14 items-center justify-center">
+        <div className="container mx-auto flex h-14 items-center justify-between px-4">
+          {/* Üres bal oldali rész - a logó eltávolítva */}
+          <div className="flex-1"></div>
+          
+          {/* Navigációs elemek középre */}
           <nav className="flex items-center justify-center gap-6">
             {navItems.map((item) =>
               item.primary ? (
@@ -76,6 +81,11 @@ export function Header() {
               ),
             )}
           </nav>
+          
+          {/* Téma váltó gomb jobbra */}
+          <div className="flex items-center justify-end flex-1">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>
