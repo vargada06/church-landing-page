@@ -13,7 +13,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { href: '#hitvallas', label: 'Hitvallásunk', primary: true },
-  { href: '#alkalmak', label: 'Gyülekezeti összejövetel', primary: false },
+  { href: '#alkalmak', label: 'Összejövetel', primary: false },
 ];
 
 export function Header() {
