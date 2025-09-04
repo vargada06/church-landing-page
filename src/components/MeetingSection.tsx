@@ -73,7 +73,7 @@ export function MeetingSection() {
           <MeetingItem
             title="2. Imádkozások"
             duration="kb. 30 perc"
-            description="Az imádság által kapcsolódunk Istenhez, fejezzük ki hálánkat, tárjuk fel kéréseinket és közbenjárunk másokért."
+            description="Az imádság által kapcsolódunk Istenhez, fejezzük ki hálánkat, tárjuk fel kéréseinket és könyörgünk másokért."
             verseRef="Fil 4,6"
             verseText="Semmi miatt ne aggódjatok, hanem imádságban és könyörgésben mindenkor hálaadással tárjátok fel kéréseiteket Isten előtt."
             icon={<MessagesSquare className="h-5 w-5" />}
